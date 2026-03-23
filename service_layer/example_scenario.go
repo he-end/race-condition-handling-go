@@ -22,7 +22,7 @@ func ExampleScenario() {
 	log := log.Default()
 
 	log.SetPrefix(strconv.Itoa(time.Now().Nanosecond()) + "-")
-	fakeRequesterWrite := make(chan func(fakeAmount int64) int64)
+	fakeRequesterWrite := make(chan func(fakeQuantity int64) int64)
 	fakeRequesterRead := make(chan func() int64)
 	cancel := make(chan struct{})
 	var wg sync.WaitGroup

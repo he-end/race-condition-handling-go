@@ -11,7 +11,7 @@ type DummyModel struct {
 	Mu    sync.RWMutex // that's the key
 }
 
-func (d *DummyModel) Writer(fakeAmount int64) int64 {
+func (d *DummyModel) Writer(fakeQuantity int64) int64 {
 	// implementation
 	/*
 		here we use Read-Write Mutex so can block if another process in memory try to write it, until this process done
@@ -21,7 +21,7 @@ func (d *DummyModel) Writer(fakeAmount int64) int64 {
 	time.Sleep(500 * time.Millisecond)
 
 	d.Mu.Lock()
-	calcualted := d.Stock - fakeAmount
+	calcualted := d.Stock - fakeQuantity
 	d.Stock = calcualted
 	d.Mu.Unlock()
 	return calcualted
